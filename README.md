@@ -63,7 +63,7 @@ This stage was my project's core data engineering challenge: to replace unreliab
 *   **Nutrition Aggregation and Validation:** With each ingredient successfully matched, I calculated the total calories, protein, carbs, and fat for each recipe. And aggregated the nutritional values of its components, carefully adjusted for the specified quantities and units. My final per-serving nutrition was then benchmarked against the NHANES per-meal averages to ensure my calculations were realistic, ultimately producing a clean, reliable dataset for over **33,000 recipes**.
 
 ![Recipe vs NHANES Benchmark](assets/3.png)
-*A comparative histogram showing the distribution of per-meal nutrition from my calculated recipes against the NHANES daily intake (divided by three). This visual validates that my recipe data is nutritionally plausible.*
+*I calculated per-serving calories, protein, carbs, and fat for each recipe using my nutrition calculation pipeline. Then I compared my recipe per-meal nutrition distributions to the NHANES benchmark by dividing NHANES daily intake into three meals. I observed that the distributions overlap well and the average calories are very close, which tells me my calculated recipe nutrition is realistic and nutritionally plausible. I also noticed that my recipe data has a longer high end tail, meaning some recipes are much higher than a typical NHANES meal, especially for calories and fat, which reflects real-world variation in meal sizes and recipe richness.*
 
 ### Step 3: Generating Synthetic Nutritional Profiles with a CTGAN
 
