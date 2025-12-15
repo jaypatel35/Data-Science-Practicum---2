@@ -8,7 +8,7 @@ NutriGen is a multi-modal generative framework designed for personalized nutriti
 **Why does it matter?**
 In an age of health-conscious eating and personalized nutrition, reliable data is paramount. Most online recipes provide opaque and untrustworthy nutritional estimates. NutriGen aims to bring transparency and accuracy to recipe nutrition, empowering users to make informed dietary choices. By generating novel cooking instructions from specified nutritional targets, I explored the creative frontier of AI in the culinary arts, paving the way for advanced applications in dynamic meal planning and automated recipe creation.
 
-**For Whom is my project for?**
+**For whom is my project for?**
 My project is for data scientists, nutritionists, developers in the food-tech space, and anyone interested in the application of NLP, generative models, and data engineering to solve complex, real-world problems.
 And my project was developed as a comprehensive portfolio piece, with the primary analysis and model training I conducted.
 
@@ -20,10 +20,10 @@ My methodology is broken down into four key stages, transforming raw, unstructur
 
 I began my project by aggregating three diverse datasets to build a holistic view of food consumption and recipe composition.
 
-### Data Sources
+### Data Sources I used
 
 **Allrecipes Dataset**
-*The primary source of raw recipe text, providing the ingredients and instructions for the core analysis and generation tasks.*
+*The primary source of raw recipe text, providing the ingredients and instructions used for my core analysis and generation tasks.*
 
 | Source                        | Type                      | Records            | Key Features Used                        |
 | ----------------------------- | ------------------------- | ------------------ | ---------------------------------------- |
@@ -52,13 +52,13 @@ I began my project by aggregating three diverse datasets to build a holistic vie
 
 ### Step 2: Engineering the Nutritional Calculation Pipeline
 
-This stage was the project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
+This stage was my project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
 
-*   **Advanced Ingredient Parsing:** A custom function was developed to intelligently parse unstructured ingredient strings (e.g., "1 (8 ounce) can crushed pineapple, drained") into structured components: a numeric `quantity`, a standardized `unit` (e.g., 'cup', 'oz'), and a cleaned `ingredient name`.
+*   **I used an advanced ingredient parsing technique:** I developed a custom function to intelligently parse unstructured ingredient strings (e.g., "1 (8 ounce) can crushed pineapple, drained") into structured components: a numeric `quantity`, a standardized `unit` (e.g., 'cup', 'oz'), and a cleaned `ingredient name`.
 
-*   **High-Speed Fuzzy Matching:** I matched the cleaned ingredient names from every recipe against the 4 million products in the Open Food Facts database. This was achieved using `rapidfuzz`, a high-performance fuzzy string matching library. This critical step allowed me to link a recipe ingredient like "all-purpose flour" to a specific food product with known nutritional values, achieving **72.9% coverage** across nearly 19,000 unique ingredients.
+*   **Also did High-Speed Fuzzy Matching:** I matched the cleaned ingredient names from every recipe against the 4 million products in the Open Food Facts database. I achieved this using `rapidfuzz`, a high-performance fuzzy string matching library. This useful step allowed me to link a recipe ingredient like "all-purpose flour" to a specific food product with known nutritional values, achieving **72.9% coverage** across nearly 19,000 unique ingredients.
 
-*   **Nutrition Aggregation and Validation:** With each ingredient successfully matched, I calculated the total calories, protein, carbs, and fat for each recipe. The system aggregated the nutritional values of its components, carefully adjusted for the specified quantities and units. The final per-serving nutrition was then benchmarked against the NHANES per-meal averages to ensure my calculations were realistic, ultimately producing a clean, reliable dataset for over **33,000 recipes**.
+*   **Nutrition Aggregation and Validation:** With each ingredient successfully matched, I calculated the total calories, protein, carbs, and fat for each recipe. And aggregated the nutritional values of its components, carefully adjusted for the specified quantities and units. My final per-serving nutrition was then benchmarked against the NHANES per-meal averages to ensure my calculations were realistic, ultimately producing a clean, reliable dataset for over **33,000 recipes**.
 
 ![Recipe vs NHANES Benchmark](assets/3.png)
 *A comparative histogram showing the distribution of per-meal nutrition from my calculated recipes against the NHANES daily intake (divided by three). This visual validates that my recipe data is nutritionally plausible.*
@@ -69,7 +69,7 @@ To explore the possibility of creating recipes for specific dietary needs, I mov
 
 *   **Objective:** I trained a **Conditional Tabular Generative Adversarial Network (CTGAN)** to learn the complex, multi-dimensional statistical distribution of my newly calculated nutritional data.
 
-*   **Application & Evaluation:** The trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. The model's performance was validated by comparing the statistical properties (like mean, standard deviation, and correlations) of the synthetic data to the real data, showing a very close match.
+*   **Application & Evaluation:** My trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. I validated my model's performance by comparing the statistical properties like mean, standard deviation and correlations of the synthetic data to the real data, showing a very close match.
 
 ![CTGAN Synthetic vs Real Distributions](assets/4.png)
 *A Kernel Density Estimate (KDE) plot overlaying the distributions of real and synthetic data for key nutrients, demonstrating the model's ability to capture the original data's structure.*
@@ -79,7 +79,7 @@ To explore the possibility of creating recipes for specific dietary needs, I mov
 
 ### Step 4: Generating Cooking Instructions with a Transformer Model
 
-The final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
+My final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
 
 *   **Model Architecture:** I implemented a **sequence-to-sequence Transformer**, a state-of-the-art neural network architecture for NLP tasks. The model's input was a formatted string containing a recipe's ingredients and its target nutritional profile, and its output was the step-by-step instructions.
 
