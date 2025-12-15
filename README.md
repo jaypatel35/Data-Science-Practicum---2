@@ -30,7 +30,7 @@ I began my project by aggregating three diverse datasets to build a holistic vie
 | Allrecipes.com (Scraped Data) | Recipe Text & Metadata    | ~38,000 recipes    | `title`, `ingredients`, `instructions`     |
 
 **Open Food Facts (OFF)**
-*The nutritional backbone of the project, used as a ground-truth database to calculate accurate nutrition for individual ingredients.*
+*The nutritional backbone of my project, used as a ground-truth database to calculate accurate nutrition for individual ingredients.*
 
 | Source             | Type                         | Records                | Key Features Used                                                              |
 | ------------------ | ---------------------------- | ---------------------- | ------------------------------------------------------------------------------ |
