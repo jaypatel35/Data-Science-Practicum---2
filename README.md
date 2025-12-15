@@ -90,7 +90,7 @@ My final and most ambitious stage was to build a model capable of writing comple
 *   **Evaluation and Results:** I evaluated the model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicated that my model is a strong baseline with room for improvement, qualitative analysis showed me that it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
 
 * Dashboard
-![CTGAN Correlation Heatmaps](assets/6.png)
+![CTGAN Correlation Heatmaps](assets/9.png)
 
 ## How to Run Project
 
