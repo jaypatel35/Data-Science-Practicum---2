@@ -2,25 +2,23 @@
 
 ## Overview
 
-**What is this project?**
-NutriGen is a multi-modal generative framework designed for personalized nutritional synthesis. It addresses the critical challenge of inaccurate and inconsistent nutritional information in online recipes by implementing a robust data pipeline. This framework calculates precise nutritional data from scratch by parsing unstructured recipe ingredients and matching them against the comprehensive Open Food Facts database. Building on this verified foundation, the project leverages a suite of generative AI models: a **CTGAN** to synthesize realistic nutritional profiles for tailored dietary needs, and a **Transformer model** to generate complete, coherent cooking instructions from the ingredient and nutritional data.
+**What is my project?**
+NutriGen is a multi-modal generative framework designed for personalized nutritional synthesis. It addresses the critical challenge of inaccurate and inconsistent nutritional information in online recipes by implementing a robust data pipeline. My framework calculates precise nutritional data from scratch by parsing unstructured recipe ingredients and matching them against the comprehensive Open Food Facts database. After building this clean nutrition foundation for my project I trained two of generative AI models: a **CTGAN** to synthesize realistic nutritional profiles for tailored dietary needs, and a **Transformer model** to generate complete, coherent cooking instructions from the ingredient and nutritional data.
 
 **Why does it matter?**
-In an age of health-conscious eating and personalized nutrition, reliable data is paramount. Most online recipes provide opaque and untrustworthy nutritional estimates. NutriGen aims to bring transparency and accuracy to recipe nutrition, empowering users to make informed dietary choices. By generating novel cooking instructions from specified nutritional targets, I explore the creative frontier of AI in the culinary arts, paving the way for advanced applications in dynamic meal planning and automated recipe creation.
+In an age of health-conscious eating and personalized nutrition, reliable data is paramount. Most online recipes provide opaque and untrustworthy nutritional estimates. NutriGen aims to bring transparency and accuracy to recipe nutrition, empowering users to make informed dietary choices. By generating novel cooking instructions from specified nutritional targets, I explored the creative frontier of AI in the culinary arts, paving the way for advanced applications in dynamic meal planning and automated recipe creation.
 
-**Who is this for?**
-This project is for data scientists, nutritionists, developers in the food-tech space, and anyone interested in the application of NLP, generative models, and data engineering to solve complex, real-world problems.
+**Who is my project for?**
+My project is for data scientists, nutritionists, developers in the food-tech space, and anyone interested in the application of NLP, generative models, and data engineering to solve complex, real-world problems.
+And my project was developed as a comprehensive portfolio piece, with the primary analysis and model training I conducted.
 
-**When was this developed?**
-This project was developed as a comprehensive portfolio piece, with the primary analysis and model training conducted in late 2025.
-
-## The Working Process: From Problem to Solution
+## Talking about my Working Process: From Problem to Solution
 
 My methodology is broken down into four key stages, transforming raw, unstructured recipe data into a generative model capable of creating new instructions.
 
 ### Step 1: Establishing a Data Foundation & Nutritional Benchmark
 
-The project began by aggregating three diverse datasets to build a holistic view of food consumption and recipe composition.
+I began my project began by aggregating three diverse datasets to build a holistic view of food consumption and recipe composition.
 
 ### Data Sources
 
@@ -54,11 +52,11 @@ The project began by aggregating three diverse datasets to build a holistic view
 
 ### Step 2: Engineering the Nutritional Calculation Pipeline
 
-This stage was the project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
+This stage was my project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
 
-*   **Advanced Ingredient Parsing:** A custom function was developed to intelligently parse unstructured ingredient strings (e.g., "1 (8 ounce) can crushed pineapple, drained") into structured components: a numeric `quantity`, a standardized `unit` (e.g., 'cup', 'oz'), and a cleaned `ingredient name`.
+*   **Advanced Ingredient Parsing:** I developed a custom function to intelligently parse unstructured ingredient strings (e.g., "1 (8 ounce) can crushed pineapple, drained") into structured components: a numeric `quantity`, a standardized `unit` (e.g., 'cup', 'oz'), and a cleaned `ingredient name`.
 
-*   **Application & Evaluation:** The trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. The model's performance was validated by comparing the statistical properties (like mean, standard deviation, and correlations) of the synthetic data to the real data, showing a very close match.
+*   **Application & Evaluation:** My trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. I validated my model's performance by comparing the statistical properties like mean, standard deviation, and correlations of the synthetic data to the real data, showing a very close match.
 
 ![CTGAN Synthetic vs Real Distributions](assets/4.png)
 *A Kernel Density Estimate (KDE) plot overlaying the distributions of real and synthetic data for key nutrients, demonstrating the model's ability to capture the original data's structure.*
@@ -67,13 +65,13 @@ This stage was the project's core data engineering challenge: to replace unrelia
 
 ### Step 4: Generating Cooking Instructions with a Transformer Model
 
-The final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
+My final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
 
 *   **Model Architecture:** I implemented a **sequence-to-sequence Transformer**, a state-of-the-art neural network architecture for NLP tasks. The model's input was a formatted string containing a recipe's ingredients and its target nutritional profile, and its output was the step-by-step instructions.
 
-*   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. These issues were resolved by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. The model was trained on my cleaned dataset of over 26,000 high-quality recipes.
+*   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. I resolved these issues by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. Then, I trained my model on my cleaned dataset of over 26,000 high-quality recipes.
 
-*   **Evaluation and Results:** I evaluated the model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicate that the model is a strong baseline with room for improvement, qualitative analysis shows it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
+*   **Evaluation and Results:** I evaluated my model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicated that my model is a strong baseline with room for improvement, qualitative analysis showed me that it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
 
 ![Transformer Training Loss](assets/6.png)
 *A line chart showing the convergence of training and validation loss over epochs, indicating that the model was learning effectively.*
@@ -81,7 +79,7 @@ The final and most ambitious stage was to build a model capable of writing compl
 ![Transformer BLEU Scores](assets/7.png)
 *A histogram showing the distribution of BLEU scores, which quantifies the quality of the generated recipe instructions against the original text.*
 
-## How to Run This Project
+## How to Run my Project
 
 Follow these steps to set up the environment, process the data, and run the models.
 
@@ -107,7 +105,7 @@ pip install -r requirements.txt
 
 ### Data Acquisition
 
-The project requires three main datasets. The notebooks will download two of them automatically.
+My project requires three main datasets. The notebooks will download two of them automatically.
 
 1.  **Allrecipes Dataset**: Download the `Allrecipes.csv` file and place it in the root directory of this project.
 2.  **Open Food Facts**: Run the `open_food_facts_data.ipynb` notebook. The initial cells will download the complete OFF database (~10 GB, compressed). This will take a significant amount of time.
