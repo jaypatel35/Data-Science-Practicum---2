@@ -83,7 +83,7 @@ To explore the possibility of creating recipes for specific dietary needs, I mov
 
 My final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
 
-*   **Model Architecture:** I implemented a **sequence-to-sequence Transformer**, a state-of-the-art neural network architecture for NLP tasks. The model's input was a formatted string containing a recipe's ingredients and its target nutritional profile, and its output was the step-by-step instructions.
+*   **Model Architecture:** I implemented a **sequence-to-sequence Transformer**, a neural network architecture for NLP tasks. The model's input was a formatted string containing a recipe's ingredients and its target nutritional profile, and its output was the step-by-step instructions.
 
 *   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. I resolved these issues by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. Then I trained my model on my cleaned dataset of over 26,000 high-quality recipes.
 
