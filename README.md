@@ -52,34 +52,42 @@ I began my project by aggregating three diverse datasets to build a holistic vie
 
 ### Step 2: Engineering the Nutritional Calculation Pipeline
 
-This stage was my project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
+This stage was the project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
 
-*   **Advanced Ingredient Parsing:** I developed a custom function to intelligently parse unstructured ingredient strings (e.g., "1 (8 ounce) can crushed pineapple, drained") into structured components: a numeric `quantity`, a standardized `unit` (e.g., 'cup', 'oz'), and a cleaned `ingredient name`.
+*   **Advanced Ingredient Parsing:** A custom function was developed to intelligently parse unstructured ingredient strings (e.g., "1 (8 ounce) can crushed pineapple, drained") into structured components: a numeric `quantity`, a standardized `unit` (e.g., 'cup', 'oz'), and a cleaned `ingredient name`.
 
-*   **Application & Evaluation:** My trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. I validated my model's performance by comparing the statistical properties like mean, standard deviation, and correlations of the synthetic data to the real data, showing a very close match.
+*   **High-Speed Fuzzy Matching:** I matched the cleaned ingredient names from every recipe against the 4 million products in the Open Food Facts database. This was achieved using `rapidfuzz`, a high-performance fuzzy string matching library. This critical step allowed me to link a recipe ingredient like "all-purpose flour" to a specific food product with known nutritional values, achieving **72.9% coverage** across nearly 19,000 unique ingredients.
+
+*   **Nutrition Aggregation and Validation:** With each ingredient successfully matched, I calculated the total calories, protein, carbs, and fat for each recipe. The system aggregated the nutritional values of its components, carefully adjusted for the specified quantities and units. The final per-serving nutrition was then benchmarked against the NHANES per-meal averages to ensure my calculations were realistic, ultimately producing a clean, reliable dataset for over **33,000 recipes**.
+
+![Recipe vs NHANES Benchmark](assets/3.png)
+*A comparative histogram showing the distribution of per-meal nutrition from my calculated recipes against the NHANES daily intake (divided by three). This visual validates that my recipe data is nutritionally plausible.*
+
+### Step 3: Generating Synthetic Nutritional Profiles with a CTGAN
+
+To explore the possibility of creating recipes for specific dietary needs, I moved into the realm of generative AI.
+
+*   **Objective:** I trained a **Conditional Tabular Generative Adversarial Network (CTGAN)** to learn the complex, multi-dimensional statistical distribution of my newly calculated nutritional data.
+
+*   **Application & Evaluation:** The trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. The model's performance was validated by comparing the statistical properties (like mean, standard deviation, and correlations) of the synthetic data to the real data, showing a very close match.
 
 ![CTGAN Synthetic vs Real Distributions](assets/4.png)
 *A Kernel Density Estimate (KDE) plot overlaying the distributions of real and synthetic data for key nutrients, demonstrating the model's ability to capture the original data's structure.*
 
-![CTGAN Correlation Heatmaps](assets/5.png)*Side-by-side heatmaps showing the correlation matrix for nutrients in the real dataset versus the synthetic one, proving the GAN maintained the complex relationships between variables.*
+![CTGAN Correlation Heatmaps](assets/5.png)
+*Side-by-side heatmaps showing the correlation matrix for nutrients in the real dataset versus the synthetic one, proving the GAN maintained the complex relationships between variables.*
 
 ### Step 4: Generating Cooking Instructions with a Transformer Model
 
-My final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
+The final and most ambitious stage was to build a model capable of writing complete, coherent cooking instructions from scratch.
 
 *   **Model Architecture:** I implemented a **sequence-to-sequence Transformer**, a state-of-the-art neural network architecture for NLP tasks. The model's input was a formatted string containing a recipe's ingredients and its target nutritional profile, and its output was the step-by-step instructions.
 
-*   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. I resolved these issues by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. Then, I trained my model on my cleaned dataset of over 26,000 high-quality recipes.
+*   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. These issues were resolved by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. The model was trained on my cleaned dataset of over 26,000 high-quality recipes.
 
-*   **Evaluation and Results:** I evaluated my model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicated that my model is a strong baseline with room for improvement, qualitative analysis showed me that it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
+*   **Evaluation and Results:** I evaluated the model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicate that the model is a strong baseline with room for improvement, qualitative analysis shows it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
 
-![Transformer Training Loss](assets/6.png)
-*A line chart showing the convergence of training and validation loss over epochs, indicating that the model was learning effectively.*
-
-![Transformer BLEU Scores](assets/7.png)
-*A histogram showing the distribution of BLEU scores, which quantifies the quality of the generated recipe instructions against the original text.*
-
-## How to Run my Project
+## How to Run Project
 
 Follow these steps to set up the environment, process the data, and run the models.
 
