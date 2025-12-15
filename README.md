@@ -8,7 +8,7 @@ NutriGen is a multi-modal generative framework designed for personalized nutriti
 **Why does it matter?**
 In an age of health-conscious eating and personalized nutrition, reliable data is paramount. Most online recipes provide opaque and untrustworthy nutritional estimates. NutriGen aims to bring transparency and accuracy to recipe nutrition, empowering users to make informed dietary choices. By generating novel cooking instructions from specified nutritional targets, I explored the creative frontier of AI in the culinary arts, paving the way for advanced applications in dynamic meal planning and automated recipe creation.
 
-**Who is my project for?**
+**For Whom is my project for?**
 My project is for data scientists, nutritionists, developers in the food-tech space, and anyone interested in the application of NLP, generative models, and data engineering to solve complex, real-world problems.
 And my project was developed as a comprehensive portfolio piece, with the primary analysis and model training I conducted.
 
@@ -18,7 +18,7 @@ My methodology is broken down into four key stages, transforming raw, unstructur
 
 ### Step 1: Establishing a Data Foundation & Nutritional Benchmark
 
-I began my project began by aggregating three diverse datasets to build a holistic view of food consumption and recipe composition.
+I began my project by aggregating three diverse datasets to build a holistic view of food consumption and recipe composition.
 
 ### Data Sources
 
