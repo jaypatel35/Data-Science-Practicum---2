@@ -45,10 +45,10 @@ I began my project by aggregating three diverse datasets to build a holistic vie
 
 ---
 
-![NHANES Nutritional Distributions](assets/1.png)*A visualization showing the distribution of daily calorie, protein, carb, and fat intake from the NHANES dataset. This sets the baseline for what a typical daily intake looks like.*
+![NHANES Nutritional Distributions](assets/1.png)*I did this data visualization to quickly understand what normal nutrition looks like in real life and to set a baseline for my project. These plots showed me the typical ranges and the average daily intake for calories, protein, carbs, fat, fiber, and sugar in the NHANES data. This helped me compare my recipe nutrition against a real benchmark and check whether my calculated results looked realistic before training my models.*
 
 ![NHANES Demographic Distributions](assets/2.png)
-*A set of bar and box plots showing the demographic breakdown of the NHANES respondents and how nutritional intake varies, for instance, by gender.*
+*I also did some EDA on the NHANES demographic data to understand who the survey represents and how nutrition patterns can change across different groups. My plots showed me the gender split, the age spread of participants, and how daily calorie intake differs by gender. This helped me confirm that my benchmark data is diverse and realistic, and it gave me more context when comparing my recipe nutrition results to real-world intake patterns..*
 
 I first cleaned all datasets and converted the raw, unstructured recipe text into a structured format like standardized ingredients, units, and nutrition fields. So my models could train on consistent and reliable data.
 
