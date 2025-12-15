@@ -10,7 +10,7 @@ In an age of health-conscious eating and personalized nutrition, reliable data i
 
 **For whom is my project for?**
 My project is for data scientists, nutritionists, developers in the food-tech space, and anyone interested in the application of NLP, generative models, and data engineering to solve complex, real-world problems.
-And my project was developed as a comprehensive portfolio piece, with the primary analysis and model training I conducted.
+And I built this project as my portfolio style end-to-end system including data processing, model training and evaluation.
 
 ## Talking about my Working Process: From Problem to Solution
 
