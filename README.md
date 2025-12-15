@@ -83,9 +83,9 @@ My final and most ambitious stage was to build a model capable of writing comple
 
 *   **Model Architecture:** I implemented a **sequence-to-sequence Transformer**, a state-of-the-art neural network architecture for NLP tasks. The model's input was a formatted string containing a recipe's ingredients and its target nutritional profile, and its output was the step-by-step instructions.
 
-*   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. These issues were resolved by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. The model was trained on my cleaned dataset of over 26,000 high-quality recipes.
+*   **Training and Refinement:** Training such a complex model presented challenges, including instability and nonsensical output in early iterations. I resolved these issues by implementing a more sophisticated training regimen, which included a **warm-up learning rate scheduler**, proper weight initialization, and scaled embeddings to ensure stable convergence. Then I trained my model on my cleaned dataset of over 26,000 high-quality recipes.
 
-*   **Evaluation and Results:** I evaluated the model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicate that the model is a strong baseline with room for improvement, qualitative analysis shows it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
+*   **Evaluation and Results:** I evaluated the model's performance using the **BLEU score**, a standard metric for measuring the similarity between machine-generated text and a human reference. While the quantitative scores indicated that my model is a strong baseline with room for improvement, qualitative analysis showed me that it successfully learned to generate grammatically correct and contextually relevant instructions that follow a logical cooking sequence.
 
 ## How to Run Project
 
