@@ -74,7 +74,7 @@ To explore the possibility of creating recipes for specific dietary needs, I mov
 *   **Application & Evaluation:** My trained CTGAN can generate new, synthetic, yet highly realistic nutritional profiles on demand. For instance, it can produce data for recipes that are "high-protein and low-fat" while maintaining plausible correlations between all nutrients. I validated my model's performance by comparing the statistical properties like mean, standard deviation and correlations of the synthetic data to the real data, showing a very close match.
 
 ![CTGAN Synthetic vs Real Distributions](assets/4.png)
-*A Kernel Density Estimate (KDE) plot overlaying the distributions of real and synthetic data for key nutrients, demonstrating the model's ability to capture the original data's structure.*
+*My KDE plots results shows that the synthetic data closely follows the real data patterns for calories, protein, carbs and fat. As the curves overlap well, it means my CTGAN model learned the original data distribution and can generate realistic nutritional profiles.*
 
 ![CTGAN Correlation Heatmaps](assets/5.png)
 *From my correlation analysis, I confirmed that my GAN preserved the main nutrient relationships from the real data, especially that calories move together with carbs and fat. From this, I understood that the synthetic nutrition profiles are realistic and not random.*
