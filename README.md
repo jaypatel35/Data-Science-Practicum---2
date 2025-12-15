@@ -50,6 +50,8 @@ I began my project by aggregating three diverse datasets to build a holistic vie
 ![NHANES Demographic Distributions](assets/2.png)
 *A set of bar and box plots showing the demographic breakdown of the NHANES respondents and how nutritional intake varies, for instance, by gender.*
 
+I first cleaned all datasets and converted the raw, unstructured recipe text into a structured format like standardized ingredients, units, and nutrition fields. So my models could train on consistent and reliable data.
+
 ### Step 2: Engineering the Nutritional Calculation Pipeline
 
 This stage was my project's core data engineering challenge: to replace unreliable, scraped nutritional data with verifiable, calculated values.
