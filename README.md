@@ -77,7 +77,7 @@ To explore the possibility of creating recipes for specific dietary needs, I mov
 *A Kernel Density Estimate (KDE) plot overlaying the distributions of real and synthetic data for key nutrients, demonstrating the model's ability to capture the original data's structure.*
 
 ![CTGAN Correlation Heatmaps](assets/5.png)
-*Side-by-side heatmaps showing the correlation matrix for nutrients in the real dataset versus the synthetic one, proving the GAN maintained the complex relationships between variables.*
+*From my correlation analysis, I confirmed that my GAN preserved the main nutrient relationships from the real data, especially that calories move together with carbs and fat. From this, I understood that the synthetic nutrition profiles are realistic and not random.*
 
 ### Step 4: Generating Cooking Instructions with a Transformer Model
 
